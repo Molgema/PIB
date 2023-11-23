@@ -13,8 +13,8 @@
 #define ledPin 13
 
 //Home Assistant Initializations
-const char* ssid = "superdepuper2.4G";
-const char* pass = "password_not1found!";
+const char* ssid = "PIBTest";
+const char* pass = "PIB1234@";
 const char* address = "PibNV/Somfy";
 
 //State Machine Initializations
@@ -23,6 +23,7 @@ states Current_State = Wait;
 int mqttReceive = 0; 
 int conString = 0;
 String payload = ""; 
+String inputProg = ""; 
 
 WiFiClient client;
 MQTTPubSubClient mqtt;
@@ -59,7 +60,7 @@ void setup() {
   Serial.println(" connected!");
 
   Serial.print("connecting to host...");
-  while (!client.connect("192.168.1.58", 1883)) {
+  while (!client.connect("192.168.1.104", 1883)) {
       Serial.print(".");
       delay(1000);
   }
@@ -232,6 +233,36 @@ void CallStateMachine(String inputString, int conversionOfString, states Current
 
 void loop() {
   mqtt.update();  // Print de input
+
+  if (!digitalRead(SW2)) {
+    inputProg = "Prog";
+    Serial.println("Switch Prog pressed");
+  }
+  else {
+    inputProg = ""; 
+  }
+
+  ConvertString(inputProg, &mqttReceive, &conString);
+
+  if (mqttReceive) {
+    Serial.println("Het ingevoerde commando is " + inputProg);
+    CallStateMachine(inputProg, conString, Current_State); 
+    //Serial.println(conString);
+    //Serial.println(Current_State);
+    //Serial.println(string);
+    //StateMachine(conString, string);
+
+    conString = 0;
+    Current_State = Wait;  
+    inputProg = ""; 
+    mqttReceive = 0; 
+
+    Serial.println(conString); 
+    Serial.println(Current_State); 
+
+    while(!digitalRead(SW2)) {};
+  }
+
   delay(10);
 } 
     

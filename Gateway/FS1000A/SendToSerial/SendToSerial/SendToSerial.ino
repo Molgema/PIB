@@ -4,7 +4,7 @@
 
 #define EMITTER_GPIO 2
 #define EEPROM_ADDRESS 0
-#define REMOTE 0x5184c6
+#define REMOTE 0x5182b0
 
 EEPROMRollingCodeStorage rollingCodeStorage(EEPROM_ADDRESS);
 SomfyRemote somfyRemote(EMITTER_GPIO, REMOTE, &rollingCodeStorage);
