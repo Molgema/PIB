@@ -69,7 +69,7 @@ void setup() {
   mqtt.begin(client);
 
   Serial.print("connecting to mqtt broker...");
-  while (!mqtt.connect("ESP32", "MQTT_User", "ashu3312mqtt")) {
+  while (!mqtt.connect("ESP32", "mqtt_user", "ashu3312mqtt")) {
       Serial.print(".");
       delay(1000);
   }
