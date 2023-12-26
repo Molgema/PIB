@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=+3V3 Pin=P1-4
+Change Component Footprint: Designator=P1 Old Footprint=61300411121 New Footprint=61300411121
+Change Component Footprint: Designator=D1 Old Footprint=WL-SMCW_0805_150080xx75000 New Footprint=WL-SMCW_0805_150080xx75000
+Added Pin To Net: NetName=+5V Pin=P1-4
+Added Room: Name=Main
