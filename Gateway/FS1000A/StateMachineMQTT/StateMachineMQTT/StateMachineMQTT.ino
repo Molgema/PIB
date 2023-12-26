@@ -4,13 +4,11 @@
 #include <EEPROMRollingCodeStorage.h>
 #include <SomfyRemote.h>  
 
-#define EMITTER_GPIO 2
+#define EMITTER_GPIO 4
 #define EEPROM_ADDRESS 0
 #define REMOTE 0x5182b0
-#define SW1 5
-#define SW2 18
-#define SW3 19
-#define ledPin 13
+//#define ProgButton 0
+//#define ledPin 13
 
 //Home Assistant Initializations
 const char* ssid = "PIBTest";
@@ -34,12 +32,8 @@ SomfyRemote somfyRemote(EMITTER_GPIO, REMOTE, &rollingCodeStorage);
 
 void setup() {
   Serial.begin(115200);
+  
   WiFi.begin(ssid, pass);
-
-  pinMode(ledPin, OUTPUT);
-  pinMode(SW1, INPUT);
-  pinMode(SW2, INPUT);
-  pinMode(SW3, INPUT);
 
   somfyRemote.setup();
 
@@ -60,7 +54,7 @@ void setup() {
   Serial.println(" connected!");
 
   Serial.print("connecting to host...");
-  while (!client.connect("192.168.1.104", 1883)) {
+  while (!client.connect("192.168.1.103", 1883)) {
       Serial.print(".");
       delay(1000);
   }
@@ -234,34 +228,30 @@ void CallStateMachine(String inputString, int conversionOfString, states Current
 void loop() {
   mqtt.update();  // Print de input
 
-  if (!digitalRead(SW2)) {
-    inputProg = "Prog";
-    Serial.println("Switch Prog pressed");
-  }
-  else {
-    inputProg = ""; 
-  }
+  //if (!digitalRead(ProgButton)) {
+  //  inputProg = "Prog";
+  //  Serial.println("Switch Prog pressed");
+  //}
+  //else {
+  //  inputProg = ""; 
+  //}
 
-  ConvertString(inputProg, &mqttReceive, &conString);
+  //ConvertString(inputProg, &mqttReceive, &conString);
 
-  if (mqttReceive) {
-    Serial.println("Het ingevoerde commando is " + inputProg);
-    CallStateMachine(inputProg, conString, Current_State); 
-    //Serial.println(conString);
-    //Serial.println(Current_State);
-    //Serial.println(string);
-    //StateMachine(conString, string);
+  //if (mqttReceive) {
+  //  Serial.println("Het ingevoerde commando is " + inputProg);
+  //  CallStateMachine(inputProg, conString, Current_State); 
 
-    conString = 0;
-    Current_State = Wait;  
-    inputProg = ""; 
-    mqttReceive = 0; 
-
-    Serial.println(conString); 
-    Serial.println(Current_State); 
-
-    while(!digitalRead(SW2)) {};
-  }
+  //  conString = 0;
+  //  Current_State = Wait;  
+  //  inputProg = ""; 
+  //  mqttReceive = 0; 
+  //
+  //  Serial.println(conString); 
+  //  Serial.println(Current_State); 
+  //
+  //  while(!digitalRead(ProgButton)) {};
+  //}
 
   delay(10);
 } 

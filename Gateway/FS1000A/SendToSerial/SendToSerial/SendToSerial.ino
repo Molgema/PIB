@@ -2,9 +2,9 @@
 #include <EEPROMRollingCodeStorage.h>
 #include <SomfyRemote.h>
 
-#define EMITTER_GPIO 2
+#define EMITTER_GPIO 4
 #define EEPROM_ADDRESS 0
-#define REMOTE 0x5182b0
+#define REMOTE 0x5122b0
 
 EEPROMRollingCodeStorage rollingCodeStorage(EEPROM_ADDRESS);
 SomfyRemote somfyRemote(EMITTER_GPIO, REMOTE, &rollingCodeStorage);

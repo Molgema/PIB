@@ -1,7 +1,7 @@
 #include <WiFi.h>
 
-const char* ssid = "HotspotTest";
-const char* password = "8c196696f872";
+const char* ssid = "PIBTest";
+const char* password = "PIB1234@";
 
 void initWifi();
 
