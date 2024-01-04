@@ -1,0 +1,153 @@
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+mqtt:
+  - button:
+      unique_id: rolluik_1_up
+      name: "Rolluik 1 Up"
+      command_topic: "PibNV/Somfy"
+      payload_press: "1/Up"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_1_down
+      name: "Rolluik 1 down"
+      command_topic: "PibNV/Somfy"
+      payload_press: "1/Down"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_1_prog
+      name: "Rolluik 1 Prog"
+      command_topic: "PibNV/Somfy"
+      payload_press: "1/Prog"
+      qos: 0
+      retain: false 
+  - button:
+      unique_id: rolluik_1_up_down
+      name: "Rolluik 5 UpDown"
+      command_topic: "PibNV/Somfy"
+      payload_press: "1/UpDown"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_2_up
+      name: "Rolluik 2 Up"
+      command_topic: "PibNV/Somfy"
+      payload_press: "2/Up"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_2_down
+      name: "Rolluik 2 down"
+      command_topic: "PibNV/Somfy"
+      payload_press: "2/Down"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_2_prog
+      name: "Rolluik 2 Prog"
+      command_topic: "PibNV/Somfy"
+      payload_press: "2/Prog"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_2_up_down
+      name: "Rolluik 2 UpDown"
+      command_topic: "PibNV/Somfy"
+      payload_press: "2/UpDown"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_3_up
+      name: "Rolluik 3 Up"
+      command_topic: "PibNV/Somfy"
+      payload_press: "3/Up"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_3_down
+      name: "Rolluik 3 down"
+      command_topic: "PibNV/Somfy"
+      payload_press: "3/Down"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_3_prog
+      name: "Rolluik 3 Prog"
+      command_topic: "PibNV/Somfy"
+      payload_press: "3/Prog"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_3_up_down
+      name: "Rolluik 3 UpDown"
+      command_topic: "PibNV/Somfy"
+      payload_press: "3/UpDown"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_4_up
+      name: "Rolluik 4 Up"
+      command_topic: "PibNV/Somfy"
+      payload_press: "4/Up"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_4_down
+      name: "Rolluik 4 down"
+      command_topic: "PibNV/Somfy"
+      payload_press: "4/Down"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_4_prog
+      name: "Rolluik 4 Prog"
+      command_topic: "PibNV/Somfy"
+      payload_press: "4/Prog"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_4_up_down
+      name: "Rolluik 4 UpDown"
+      command_topic: "PibNV/Somfy"
+      payload_press: "4/UpDown"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_5_up
+      name: "Rolluik 5 Up"
+      command_topic: "PibNV/Somfy"
+      payload_press: "5/Up"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_5_down
+      name: "Rolluik 5 down"
+      command_topic: "PibNV/Somfy"
+      payload_press: "5/Down"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_5_prog
+      name: "Rolluik 5 Prog"
+      command_topic: "PibNV/Somfy"
+      payload_press: "5/Prog"
+      qos: 0
+      retain: false
+  - button:
+      unique_id: rolluik_5_up_down
+      name: "Rolluik 5 UpDown"
+      command_topic: "PibNV/Somfy"
+      payload_press: "5/UpDown"
+      qos: 0
+      retain: false
